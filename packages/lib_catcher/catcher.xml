@@ -1,0 +1,15 @@
+<extension type="library" method="upgrade" version="1.7.0">
+    <name>Catcher Library</name>
+    <libraryname>catcher</libraryname>
+    <author>Joomlatools</author>
+    <creationDate>September 2014</creationDate>
+    <copyright>Copyright (C) 2014 Timble CVBA</copyright>
+    <license>GNU GPLv3 - http://www.gnu.org/licenses/gpl.html</license>
+    <authorEmail>info@joomlatools.eu</authorEmail>
+    <authorUrl>www.joomlatools.com</authorUrl>
+    <version>1.0</version>
+    <description>Base classes for events catching plugins</description>
+    <files>
+        <folder>plugin</folder>
+    </files>
+</extension>

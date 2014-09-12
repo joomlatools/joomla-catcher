@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="1.6">
+    <name>Catcher</name>
+    <author>Joomlatools</author>
+    <creationDate>September 2014</creationDate>
+    <packagename>catcher</packagename>
+    <version>1.0.0</version>
+    <url>http://www.joomlatools.com/</url>
+    <packager>Joomlatools</packager>
+    <packagerurl>http://www.joomlatools.com/</packagerurl>
+    <description>A bundle of plugins and a library for catching and debug Joomla! events</description>
+    <files folder="packages">
+        <file type="plugin" id="catcher" group="content">plg_content_catcher.zip</file>
+        <file type="plugin" id="catcher" group="extension">plg_extension_catcher.zip</file>
+        <file type="plugin" id="catcher" group="user">plg_user_catcher.zip</file>
+        <file type="library" id="catcher">lib_catcher.zip</file>
+    </files>
+</extension>

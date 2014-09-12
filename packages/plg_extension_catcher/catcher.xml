@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="extension" method="upgrade">
+    <name>plg_extension_catcher</name>
+    <author>Joomlatools</author>
+    <creationDate>September 2014</creationDate>
+    <copyright>Copyright (C) 2014 Timble CVBA</copyright>
+    <license>GNU GPLv3 - http://www.gnu.org/licenses/gpl.html</license>
+    <authorEmail>info@joomlatools.eu</authorEmail>
+    <authorUrl>www.joomlatools.com</authorUrl>
+    <version>1.0</version>
+    <description>PLG_EXTENSION_CATCHER_XML_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="catcher">catcher.php</filename>
+        <folder>language</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field type="radio" name="show_data" class="btn-group" label="SHOW_DATA_LABEL" description="SHOW_DATA_DESC" default="1">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field type="checkboxes" class="checkbox" name="events" label="EVENTS_LABEL" description="EVENTS_DESC">
+                    <option value="onExtensionBeforeSave">onExtensionBeforeSave</option>
+                    <option value="onExtensionAfterSave">onExtensionAfterSave</option>
+                    <option value="onExtensionBeforeDelete">onExtensionBeforeDelete</option>
+                    <option value="onExtensionAfterDelete">onExtensionAfterDelete</option>
+                    <option value="onExtensionChangeState">onExtensionChangeState</option>
+                    <option value="onExtensionAfterInstall">onExtensionAfterInstall</option>
+                    <option value="onExtensionAfterUninstall">onExtensionAfterUninstall</option>
+                    <option value="onExtensionAfterUpdate">onExtensionAfterUpdate</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
