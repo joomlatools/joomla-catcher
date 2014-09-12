@@ -22,7 +22,7 @@
                     <option value="0">JNO</option>
                 </field>
                 <field type="checkboxes" class="checkbox" name="events" label="EVENTS_LABEL" description="EVENTS_DESC">
-                    <option value="OnUserBeforeSave">OnUserBeforeSave</option>
+                    <option value="onUserBeforeSave">onUserBeforeSave</option>
                     <option value="onUserAfterSave">onUserAfterSave</option>
                     <option value="onUserBeforeDelete">onUserBeforeDelete</option>
                     <option value="onUserAfterDelete">onUserAfterDelete</option>
