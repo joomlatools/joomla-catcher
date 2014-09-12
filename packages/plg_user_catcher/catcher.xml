@@ -26,6 +26,10 @@
                     <option value="onUserAfterSave">onUserAfterSave</option>
                     <option value="onUserBeforeDelete">onUserBeforeDelete</option>
                     <option value="onUserAfterDelete">onUserAfterDelete</option>
+                    <option value="onUserBeforeSaveGroup">onUserBeforeSaveGroup</option>
+                    <option value="onUserAfterSaveGroup">onUserAfterSaveGroup</option>
+                    <option value="onUserBeforeDeleteGroup">onUserBeforeDeleteGroup</option>
+                    <option value="onUserAfterDeleteGroup">onUserAfterDeleteGroup</option>
                     <option value="onUserLogin">onUserLogin</option>
                     <option value="onUserLoginFailure">onUserLoginFailure</option>
                     <option value="onUserAfterLogin">onUserAfterLogin</option>
