@@ -41,8 +41,26 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                 }
             }
 
-            if ($this->params->get('show_data') && ($data = $this->_formatData($data))) {
-                $message .= '<br/><br/><strong>Data:</strong><br/><br/>' . $data;
+            if ($this->params->get('show_data') && ($data = $this->_formatData($data)))
+            {
+                $panel_signature = $config['event'] . '_' . md5($data);
+
+                $message .= '<br/><br/><div class="panel-group" id="accordion">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h5 class="panel-title">
+                                    <a data-toggle="collapse" class="btn btn-warning btn-small" data-parent="#accordion" href="#' .
+                                    $panel_signature . '">
+                                      Display/Hide data
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="' . $panel_signature . '" class="panel-collapse collapse">
+                                  <div class="panel-body" style="word-break: break-all;">';
+
+                $message .= $data;
+
+                $message .= '</div></div></div></div>';
             }
 
             $message = "<hr>{$message}";
