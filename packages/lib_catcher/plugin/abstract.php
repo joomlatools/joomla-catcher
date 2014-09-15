@@ -92,8 +92,10 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                 }
 
                 if (!is_object($value)) {
-                    $output .= "{$value}<br/>";
+                    $output .= $value;
                 }
+
+                $output .= '<br/>';
             }
         }
 
