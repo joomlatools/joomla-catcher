@@ -138,5 +138,21 @@ class PlgUserCatcher extends LibCatcherPluginAbstract
         ));
     }
 
+    public function onUserAuthorisationFailure($authorization)
+    {
+        $this->_publishMessage(array(
+            'event'   => 'onUserAuthorisationFailure',
+            'message' => '<strong>onUserAuthorisationFailure</strong> has been triggered',
+            'data'    => array('authorization' => $authorization)
+        ));
+    }
 
+    public function onUserAuthorisation($response, $options)
+    {
+        $this->_publishMessage(array(
+            'event'   => 'onUserAuthorisation',
+            'message' => '<strong>onUserAuthorisation</strong> has been triggered',
+            'data'    => array('response' => $response, 'options' => $options)
+        ));
+    }
 }
