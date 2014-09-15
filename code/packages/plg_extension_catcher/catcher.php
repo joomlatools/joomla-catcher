@@ -65,28 +65,46 @@ class PlgExtensionCatcher extends LibCatcherPluginAbstract
 
     public function onExtensionAfterInstall($installer, $eid)
     {
+        $data = array('eid' => $eid);
+
+        if (($manifest = $installer->manifest) && $manifest instanceof SimpleXMLElement) {
+            $data['manifest'] = htmlspecialchars($manifest->asXML());
+        }
+
         $this->_publishMessage(array(
             'event'   => 'onExtensionAfterInstall',
             'message' => '<strong>onExtensionAfterInstall</strong> has been triggered',
-            'data'    => array('manifest' => $installer->getManifest(), 'eid' => $eid)
+            'data'    => $data
         ));
     }
 
     public function onExtensionAfterUninstall($installer, $eid, $result)
     {
+        $data = array('eid' => $eid, 'result' => $result);
+
+        if (($manifest = $installer->manifest) && $manifest instanceof SimpleXMLElement) {
+            $data['manifest'] = htmlspecialchars($manifest->asXML());
+        }
+
         $this->_publishMessage(array(
             'event'   => 'onExtensionAfterUninstall',
             'message' => '<strong>onExtensionAfterUninstall</strong> has been triggered',
-            'data'    => array('manifest' => $installer->getManifest(), 'eid' => $eid, 'result' => $result)
+            'data'    => $data
         ));
     }
 
     public function onExtensionAfterUpdate($installer, $eid)
     {
+        $data = array('eid' => $eid);
+
+        if (($manifest = $installer->manifest) && $manifest instanceof SimpleXMLElement) {
+            $data['manifest'] = htmlspecialchars($manifest->asXML());
+        }
+
         $this->_publishMessage(array(
             'event'   => 'onExtensionAfterUpdate',
             'message' => '<strong>onExtensionAfterUpdate</strong> has been triggered',
-            'data'    => array('manifest' => $installer->getManifest(), 'eid' => $eid)
+            'data'    => $data
         ));
     }
 }
