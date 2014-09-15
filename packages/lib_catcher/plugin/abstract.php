@@ -64,7 +64,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                     $output .= '&nbsp;';
                 }
 
-                $output .= "- <u>{$key}</u>: ";
+                $output .= "<strong>{$key}</strong>: ";
 
                 if ($value instanceof JObject) {
                     $value = $value->getProperties();
