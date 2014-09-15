@@ -120,12 +120,21 @@ class PlgUserCatcher extends LibCatcherPluginAbstract
         ));
     }
 
-    public function onUserAuthenticate($credentials)
+    public function onUserAfterLogout($options)
     {
         $this->_publishMessage(array(
-            'event'   => 'onUserAuthenticate',
-            'message' => '<strong>onUserAuthenticate</strong> has been triggered',
-            'data'    => array('credentials' => $credentials)
+            'event'   => 'onUserAfterLogout',
+            'message' => '<strong>onUserAfterLogout</strong> has been triggered',
+            'data'    => array('options' => $options)
+        ));
+    }
+
+    public function onUserLogoutFailure($parameters)
+    {
+        $this->_publishMessage(array(
+            'event'   => 'onUserLogoutFailure',
+            'message' => '<strong>onUserLogoutFailure</strong> has been triggered',
+            'data'    => array('parameters' => $parameters)
         ));
     }
 
