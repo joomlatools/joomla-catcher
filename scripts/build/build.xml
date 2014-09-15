@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<project name="catcher" default="build">
+
+    <property file="build.properties" />
+
+    <target name="build">
+        <delete dir="tmp" includeemptydirs="true" />
+
+        <copy todir="tmp">
+            <fileset dir="../../code" />
+        </copy>
+
+        <tar destfile="tmp/packages/lib_catcher${file.extension}" basedir="tmp/packages/lib_catcher" compression="${file.compression}" />
+        <tar destfile="tmp/packages/plg_content_catcher{file.extension}" basedir="tmp/packages/plg_content_catcher" compression="${file.compression}" />
+        <tar destfile="tmp/packages/plg_extension_catcher{file.extension}" basedir="tmp/packages/plg_extension_catcher" compression="${file.compression}" />
+        <tar destfile="tmp/packages/plg_user_catcher{file.extension}" basedir="tmp/packages/plg_user_catcher" compression="${file.compression}" />
+
+        <delete dir="tmp/packages/lib_catcher" includeemptydirs="true" />
+        <delete dir="tmp/packages/plg_content_catcher" includeemptydirs="true" />
+        <delete dir="tmp/packages/plg_extension_catcher" includeemptydirs="true" />
+        <delete dir="tmp/packages/plg_user_catcher" includeemptydirs="true" />
+
+        <tar destfile="pkg_catcher{file.extension}" basedir="tmp" compression="${file.compression}" />
+
+        <delete dir="tmp" includeemptydirs="true" />
+    </target>
+</project>
