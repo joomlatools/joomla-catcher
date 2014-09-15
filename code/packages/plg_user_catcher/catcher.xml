@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="user" method="upgrade">
-    <name>plg_extension_catcher</name>
+    <name>plg_user_catcher</name>
     <author>Joomlatools</author>
     <creationDate>September 2014</creationDate>
     <copyright>Copyright (C) 2014 Timble CVBA</copyright>
