@@ -33,7 +33,9 @@
                     <option value="onUserLogin">onUserLogin</option>
                     <option value="onUserLoginFailure">onUserLoginFailure</option>
                     <option value="onUserAfterLogin">onUserAfterLogin</option>
+                    <option value="onUserLogout">onUserLogout</option>
                     <option value="onUserAfterLogout">onUserAfterLogout</option>
+                    <option value="onUserLogoutFailure">onUserLogoutFailure</option>
                     <option value="onUserAuthorisation">onUserAuthorisation</option>
                 </field>
             </fieldset>
