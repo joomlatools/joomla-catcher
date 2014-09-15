@@ -27,7 +27,6 @@ abstract class LibCatcherPluginAbstract extends JPlugin
             $text       = isset($config['message']) ? $config['message'] : $this->_message;
             $data       = isset($config['data']) ? $config['data'] : array();
             $parameters = isset($config['parameters']) ? $config['parameters'] : array();
-            $type       = isset($config['type']) ? $config['type'] : 'Events';
             $new        = isset($config['new']) ? $config['new'] : null;
 
             $message = vsprintf($text, $parameters);
@@ -65,7 +64,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
             $message = "<hr>{$message}";
 
-            JFactory::getApplication()->enqueueMessage($message, $type);
+            JFactory::getApplication()->enqueueMessage($message, 'warning');
         }
     }
 
