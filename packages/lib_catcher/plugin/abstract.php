@@ -12,35 +12,50 @@ defined('_JEXEC') or die;
  */
 abstract class LibCatcherPluginAbstract extends JPlugin
 {
-    protected $_message = '<strong>%s</strong> triggered in <strong>%s</strong> context';
-
-    protected function _publishMessage($config = array())
+    public function __construct(&$subject, $config = array())
     {
-        if(!isset($config['event'])) {
-            throw new InvalidArgumentException('The Event name is missing.');
+        parent::__construct($subject, $config);
+
+        // Load library translations.
+        JFactory::getLanguage()->load('lib_catcher', JPATH_ROOT);
+    }
+
+    /**
+     * Reports an event.
+     *
+     * @param string $event The name of the event to report.
+     * @param array $config An optional configuration array.
+     */
+    protected function _reportEvent($event, $config = array())
+    {
+        $config = array_merge(array(
+            'data'    => array(),
+            'message' => array(),
+            'new'     => null
+        ), $config);
+
+        if (!isset($config['message']['text'])) {
+            $config['message'] = array('text' => 'LIB_CATCHER_MESSAGE_DEFAULT', 'parameters' => array($event));
         }
 
         $events = $this->params->get('events', array());
 
-        if (in_array($config['event'], $events))
+        if (in_array($event, $events))
         {
-            $text       = isset($config['message']) ? $config['message'] : $this->_message;
-            $data       = isset($config['data']) ? $config['data'] : array();
-            $parameters = isset($config['parameters']) ? $config['parameters'] : array();
-            $new        = isset($config['new']) ? $config['new'] : null;
+            $args = $config['message']['parameters'];
+            array_unshift($args, $config['message']['text']);
+            $message = call_user_func_array(array('JText', 'sprintf'), $args);
 
-            $message = vsprintf($text, $parameters);
-
-            if (isset($new))
+            if (isset($config['new']))
             {
-                if ($new) {
-                    $message .= '<br/><br/>The item is <strong>NEW</strong>';
+                if ($config['new']) {
+                    $message .= '<br/><br/>' . JText::_('LIB_CATCHER_ITEM_NEW');
                 } else {
-                    $message .= '<br/><br/>The item is <strong>NOT</strong> new';
+                    $message .= '<br/><br/>' . JText::_('LIB_CATCHER_ITEM_NOT_NEW');
                 }
             }
 
-            if ($this->params->get('show_data') && ($data = $this->_formatData($data)))
+            if ($this->params->get('show_data') && ($data = $this->_renderData($config['data'])))
             {
                 $panel_signature = $config['event'] . '_' . md5($data);
 
@@ -49,9 +64,9 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                                 <div class="panel-heading">
                                   <h5 class="panel-title">
                                     <a data-toggle="collapse" class="btn btn-warning btn-small" data-parent="#accordion" href="#' .
-                                    $panel_signature . '">
-                                      Display/Hide data
-                                    </a>
+                                    $panel_signature . '">'.
+                                      JText::_('LIB_CATCHER_DISPLAY_HIDE_DATA')
+                                    .'</a>
                                   </h5>
                                 </div>
                                 <div id="' . $panel_signature . '" class="panel-collapse collapse">
@@ -68,7 +83,14 @@ abstract class LibCatcherPluginAbstract extends JPlugin
         }
     }
 
-    protected function _formatData($data, $level = 1)
+    /**
+     * Renders event data
+     *
+     * @param array $data An associative array containing data
+     * @param int $level Indentation level
+     * @return string The rendered data
+     */
+    protected function _renderData($data, $level = 1)
     {
         $data = (array) $data;
         $output = '';
@@ -93,15 +115,12 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
                 if (is_array($value))
                 {
-                    if (empty($value) || is_numeric(key($value)))
-                    {
-                        $value = implode(', ', $value);
-                    }
-                    else
+                    if (!empty($value) || !is_numeric(key($value)))
                     {
                         $output .= '<br/>';
-                        $value = $this->_formatData($value, $level + 1);
+                        $value = $this->_renderData($value, $level + 1);
                     }
+                    else $value = implode(', ', $value);
                 }
 
                 if (is_object($value) && method_exists($value, '__toString')) {
