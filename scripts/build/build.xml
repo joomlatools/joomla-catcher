@@ -7,18 +7,11 @@
         <delete dir="tmp" includeemptydirs="true" />
 
         <copy todir="tmp">
-            <fileset dir="../../code" />
+            <fileset dir="../../" />
         </copy>
 
-        <tar destfile="tmp/packages/lib_catcher${file.extension}" basedir="tmp/packages/lib_catcher" compression="${file.compression}" />
-        <tar destfile="tmp/packages/plg_content_catcher${file.extension}" basedir="tmp/packages/plg_content_catcher" compression="${file.compression}" />
-        <tar destfile="tmp/packages/plg_extension_catcher${file.extension}" basedir="tmp/packages/plg_extension_catcher" compression="${file.compression}" />
-        <tar destfile="tmp/packages/plg_user_catcher${file.extension}" basedir="tmp/packages/plg_user_catcher" compression="${file.compression}" />
-
-        <delete dir="tmp/packages/lib_catcher" includeemptydirs="true" />
-        <delete dir="tmp/packages/plg_content_catcher" includeemptydirs="true" />
-        <delete dir="tmp/packages/plg_extension_catcher" includeemptydirs="true" />
-        <delete dir="tmp/packages/plg_user_catcher" includeemptydirs="true" />
+        <delete dir="tmp/scripts" includeemptydirs="true" />
+        <delete file="tmp/composer.json" quiet="true" />
 
         <delete file="pkg_catcher${file.extension}" quiet="true" />
         <tar destfile="pkg_catcher${file.extension}" basedir="tmp" compression="${file.compression}" />
