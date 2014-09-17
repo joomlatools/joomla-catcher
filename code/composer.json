@@ -1,0 +1,7 @@
+{
+    "name": "nooku/pkg_catcher",
+    "type": "joomla-extension",
+    "require": {
+        "nooku/installer": "*"
+    }
+}
