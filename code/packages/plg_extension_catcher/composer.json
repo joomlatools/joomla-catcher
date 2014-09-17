@@ -1,7 +1,0 @@
-{
-    "name": "nooku/plg_extension_catcher",
-    "type": "joomla-extension",
-    "require": {
-        "nooku/installer": "*"
-    }
-}
