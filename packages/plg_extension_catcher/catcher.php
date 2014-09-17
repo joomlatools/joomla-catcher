@@ -7,7 +7,7 @@
  */
 defined('_JEXEC') or die;
 
-require_once JPATH_LIBRARIES . '/catcher/plugin/abstract.php';
+jimport('catcher.plugin.abstract');
 
 /**
  * Catcher Extension Plugin.
@@ -18,48 +18,58 @@ class PlgExtensionCatcher extends LibCatcherPluginAbstract
     {
         $data = array('items' => $pks, 'state' => $value);
 
-        $this->_publishMessage(array(
-            'event'      => 'onExtensionChangeState',
-            'parameters' => array('onExtensionChangeState', $context),
-            'data'       => $data
+        $this->_reportEvent('onExtensionChangeState', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onExtensionChangeState', $context)
+            ),
+            'data'    => $data
         ));
     }
 
     public function onExtensionBeforeSave($context, $data, $isNew)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onExtensionBeforeSave',
-            'parameters' => array('onExtensionBeforeSave', $context),
-            'data'       => array('form' => $data),
-            'new'        => $isNew
+        $this->_reportEvent('onExtensionBeforeSave', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onExtensionBeforeSave', $context)
+            ),
+            'data'    => array('form' => $data),
+            'new'     => $isNew
         ));
     }
 
     public function onExtensionAfterSave($context, $data, $isNew)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onExtensionAfterSave',
-            'parameters' => array('onExtensionAfterSave', $context),
-            'data'       => array('item' => $data),
-            'new'        => $isNew
+        $this->_reportEvent('onExtensionAfterSave', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onExtensionAfterSave', $context)
+            ),
+            'data'    => array('item' => $data),
+            'new'     => $isNew
         ));
     }
 
     public function onExtensionBeforeDelete($context, $data)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onExtensionBeforeDelete',
-            'parameters' => array('onExtensionBeforeDelete', $context),
-            'data'       => array('item' => $data)
+        $this->_reportEvent('onExtensionBeforeDelete', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onExtensionBeforeDelete', $context)
+            ),
+            'data'    => array('item' => $data)
         ));
     }
 
     public function onExtensionAfterDelete($context, $data)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onExtensionAfterDelete',
-            'parameters' => array('onExtensionAfterDelete', $context),
-            'data'       => array('item' => $data)
+        $this->_reportEvent('onExtensionAfterDelete', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onExtensionAfterDelete', $context)
+            ),
+            'data'    => array('item' => $data)
         ));
     }
 
@@ -71,11 +81,7 @@ class PlgExtensionCatcher extends LibCatcherPluginAbstract
             $data['manifest'] = htmlspecialchars($manifest->asXML());
         }
 
-        $this->_publishMessage(array(
-            'event'   => 'onExtensionAfterInstall',
-            'message' => '<strong>onExtensionAfterInstall</strong> has been triggered',
-            'data'    => $data
-        ));
+        $this->_reportEvent('onExtensionAfterInstall', array('data' => $data));
     }
 
     public function onExtensionAfterUninstall($installer, $eid, $result)
@@ -86,11 +92,7 @@ class PlgExtensionCatcher extends LibCatcherPluginAbstract
             $data['manifest'] = htmlspecialchars($manifest->asXML());
         }
 
-        $this->_publishMessage(array(
-            'event'   => 'onExtensionAfterUninstall',
-            'message' => '<strong>onExtensionAfterUninstall</strong> has been triggered',
-            'data'    => $data
-        ));
+        $this->_reportEvent('onExtensionAfterUninstall', array('data' => $data));
     }
 
     public function onExtensionAfterUpdate($installer, $eid)
@@ -101,10 +103,6 @@ class PlgExtensionCatcher extends LibCatcherPluginAbstract
             $data['manifest'] = htmlspecialchars($manifest->asXML());
         }
 
-        $this->_publishMessage(array(
-            'event'   => 'onExtensionAfterUpdate',
-            'message' => '<strong>onExtensionAfterUpdate</strong> has been triggered',
-            'data'    => $data
-        ));
+        $this->_reportEvent('onExtensionAfterUpdate', array('data' => $data));
     }
 }

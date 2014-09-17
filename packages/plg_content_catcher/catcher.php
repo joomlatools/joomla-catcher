@@ -7,7 +7,7 @@
  */
 defined('_JEXEC') or die;
 
-require_once JPATH_LIBRARIES . '/catcher/plugin/abstract.php';
+jimport('catcher.plugin.abstract');
 
 /**
  * Catcher Content Plugin.
@@ -18,119 +18,141 @@ class PlgContentCatcher extends LibCatcherPluginAbstract
     {
         $data = array('items' => $pks, 'state' => $value);
 
-        $this->_publishMessage(array(
-            'event'      => 'onContentChangeState',
-            'parameters' => array('onContentStateChange', $context),
-            'data'       => $data
+        $this->_reportEvent('onContentChangeState', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentStateChange', $context)
+            ),
+            'data'    => $data
         ));
     }
 
     public function onContentBeforeSave($context, $data, $isNew)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentBeforeSave',
-            'parameters' => array('onContentBeforeSave', $context),
-            'data'       => array('form' => $data),
-            'new'        => $isNew
+        $this->_reportEvent('onContentBeforeSave', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentBeforeSave', $context)
+            ),
+            'data'    => array('form' => $data),
+            'new'     => $isNew
         ));
     }
 
     public function onContentAfterSave($context, $data, $isNew)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentAfterSave',
-            'parameters' => array('onContentAfterSave', $context),
-            'data'       => array('item' => $data),
-            'new'        => $isNew
+        $this->_reportEvent('onContentAfterSave', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentAfterSave', $context)
+            ),
+            'data'    => array('item' => $data),
+            'new'     => $isNew
         ));
     }
 
     public function onContentBeforeDelete($context, $data)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentBeforeDelete',
-            'parameters' => array('onContentBeforeDelete', $context),
-            'data'       => array('item' => $data)
+        $this->_reportEvent('onContentBeforeDelete', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentBeforeDelete', $context)
+            ),
+            'data'    => array('item' => $data)
         ));
     }
 
     public function onContentAfterDelete($context, $data)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentAfterDelete',
-            'parameters' => array('onContentAfterDelete', $context),
-            'data'       => array('item' => $data)
+        $this->_reportEvent('onContentAfterDelete', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentAfterDelete', $context)
+            ),
+            'data'    => array('item' => $data)
         ));
     }
 
     public function onContentBeforeDisplay($context, $data, $params, $limitstart)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentBeforeDisplay',
-            'parameters' => array('onContentBeforeDisplay', $context),
-            'data'       => array('item' => $data, 'parameters' => $params, 'limitstart' => $limitstart)
+        $this->_reportEvent('onContentBeforeDisplay', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentBeforeDisplay', $context)
+            ),
+            'data'    => array('item' => $data, 'parameters' => $params, 'limitstart' => $limitstart)
         ));
     }
 
     public function onContentAfterDisplay($context, $data, $params, $limitstart)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentAfterDisplay',
-            'parameters' => array('onContentAfterDisplay', $context),
-            'data'       => array('item' => $data, 'parameters' => $params, 'limitstart' => $limitstart)
+        $this->_reportEvent('onContentAfterDisplay', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentAfterDisplay', $context)
+            ),
+            'data'    => array('item' => $data, 'parameters' => $params, 'limitstart' => $limitstart)
         ));
     }
 
     public function onContentAfterTitle($context, $data, $params, $limitstart)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentAfterTitle',
-            'parameters' => array('onContentAfterTitle', $context),
-            'data'       => array('item' => $data, 'parameters' => $params, 'limitstart' => $limitstart)
+        $this->_reportEvent('onContentAfterTitle', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentAfterTitle', $context)
+            ),
+            'data'    => array('item' => $data, 'parameters' => $params, 'limitstart' => $limitstart)
         ));
     }
 
     public function onContentPrepare($context, $data, $params, $page)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentPrepare',
-            'parameters' => array('onContentPrepare', $context),
-            'data'       => array('item' => $data, 'parameters' => $params, 'page' => $page)
+        $this->_reportEvent('onContentPrepare', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentPrepare', $context)
+            ),
+            'data'    => array('item' => $data, 'parameters' => $params, 'page' => $page)
         ));
     }
 
     public function onContentPrepareForm($form, $data)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentPrepareForm',
-            'message'    => '<strong>onContentPrepareForm</strong> has been triggered',
-            'data'       => array('form' => $form->getName(), 'data' => $data)
+        $this->_reportEvent('onContentPrepareForm', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentPrepareForm')
+            ),
+            'data'    => array('form' => $form->getName(), 'data' => $data)
         ));
     }
 
     public function onContentPrepareData($context, $data)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentPrepareData',
-            'parameters' => array('onContentPrepareData', $context),
-            'data'       => array('form' => $data)
+        $this->_reportEvent('onContentPrepareData', array(
+            'message' => array(
+                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
+                'parameters' => array('onContentPrepareData', $context)
+            ),
+            'data'    => array('form' => $data)
         ));
     }
 
     public function onContentSearch($text, $phrase, $ordering, $areas)
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentSearch',
-            'message'    => '<strong>onContentSearch</strong> has been triggered',
-            'data'       => array('text' => $text, 'phrase' => $phrase, 'ordering' => $ordering, 'areas' => $areas)
+        $this->_reportEvent('onContentSearch', array(
+            'data' => array(
+                'text'     => $text,
+                'phrase'   => $phrase,
+                'ordering' => $ordering,
+                'areas'    => $areas
+            )
         ));
     }
 
     public function onContentSearchAreas()
     {
-        $this->_publishMessage(array(
-            'event'      => 'onContentSearchAreas',
-            'message'    => '<strong>onContentSearchAreas</strong> has been triggered',
-        ));
+        $this->_reportEvent('onContentSearchAreas');
     }
 }
