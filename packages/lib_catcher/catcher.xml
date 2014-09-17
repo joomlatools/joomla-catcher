@@ -13,4 +13,7 @@
     <files>
         <folder>plugin</folder>
     </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB.lib_catcher.ini</language>
+    </languages>
 </extension>
