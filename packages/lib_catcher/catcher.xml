@@ -12,8 +12,9 @@
     <description>Base classes for events catching plugins</description>
     <files>
         <folder>plugin</folder>
+        <folder>language</folder>
     </files>
     <languages folder="language">
-        <language tag="en-GB">en-GB.lib_catcher.ini</language>
+        <language tag="en-GB">en-GB/en-GB.lib_catcher.ini</language>
     </languages>
 </extension>
