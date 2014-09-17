@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" version="1.6">
     <name>Catcher</name>
-    <author>Joomlatools</author>
+    <author>Timble</author>
     <creationDate>September 2014</creationDate>
     <packagename>catcher</packagename>
     <version>1.0.0</version>
-    <url>http://www.joomlatools.com/</url>
-    <packager>Joomlatools</packager>
-    <packagerurl>http://www.joomlatools.com/</packagerurl>
+    <url>https://github.com/nooku/joomla-catcher/</url>
+    <packager>Timble</packager>
+    <packagerurl>http://www.timble.net/</packagerurl>
     <description>A bundle of plugins and a library for catching and debug Joomla! events</description>
     <files folder="packages">
         <file type="plugin" id="catcher" group="content">plg_content_catcher</file>
