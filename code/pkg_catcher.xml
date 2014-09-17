@@ -10,9 +10,9 @@
     <packagerurl>http://www.joomlatools.com/</packagerurl>
     <description>A bundle of plugins and a library for catching and debug Joomla! events</description>
     <files folder="packages">
-        <file type="plugin" id="catcher" group="content">plg_content_catcher.tar.gz</file>
-        <file type="plugin" id="catcher" group="extension">plg_extension_catcher.tar.gz</file>
-        <file type="plugin" id="catcher" group="user">plg_user_catcher.tar.gz</file>
-        <file type="library" id="catcher">lib_catcher.tar.gz</file>
+        <file type="plugin" id="catcher" group="content">plg_content_catcher</file>
+        <file type="plugin" id="catcher" group="extension">plg_extension_catcher</file>
+        <file type="plugin" id="catcher" group="user">plg_user_catcher</file>
+        <file type="library" id="catcher">lib_catcher</file>
     </files>
 </extension>
