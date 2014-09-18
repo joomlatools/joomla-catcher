@@ -77,7 +77,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                 $message .= '</div></div></div></div>';
             }
 
-            $message = "<hr>{$message}";
+            $message = "<hr>{$message}<hr/>";
 
             JFactory::getApplication()->enqueueMessage($message, 'warning');
         }
