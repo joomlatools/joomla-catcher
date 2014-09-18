@@ -57,7 +57,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
             if ($this->params->get('show_data') && ($data = $this->_renderData($config['data'])))
             {
-                $panel_signature = $config['event'] . '_' . md5($data);
+                $panel_signature = $event . '_' . md5($data);
 
                 $message .= '<br/><br/><div class="panel-group" id="accordion">
                               <div class="panel panel-default">
