@@ -57,19 +57,19 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
             if ($this->params->get('show_data') && ($data = $this->_renderData($config['data'])))
             {
-                $panel_signature = $event . '_' . md5($data);
+                $signature = sprintf('%s_%s', $event, md5($data . microtime()));
 
                 $message .= '<br/><br/><div class="panel-group" id="accordion">
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h5 class="panel-title">
                                     <a data-toggle="collapse" class="btn btn-warning btn-small" data-parent="#accordion" href="#' .
-                                    $panel_signature . '">'.
+                                    $signature . '">'.
                                       JText::_('LIB_CATCHER_DISPLAY_HIDE_DATA')
                                     .'</a>
                                   </h5>
                                 </div>
-                                <div id="' . $panel_signature . '" class="panel-collapse collapse">
+                                <div id="' . $signature . '" class="panel-collapse collapse">
                                   <div class="panel-body" style="word-break: break-all;">';
 
                 $message .= $data;
