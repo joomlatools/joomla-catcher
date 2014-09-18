@@ -51,9 +51,9 @@ abstract class LibCatcherPluginAbstract extends JPlugin
             if (isset($config['new']))
             {
                 if ($config['new']) {
-                    $message .= '<br/><br/>' . JText::_('LIB_CATCHER_ITEM_NEW');
+                    $message .= '<br/>' . JText::_('LIB_CATCHER_ITEM_NEW');
                 } else {
-                    $message .= '<br/><br/>' . JText::_('LIB_CATCHER_ITEM_NOT_NEW');
+                    $message .= '<br/>' . JText::_('LIB_CATCHER_ITEM_NOT_NEW');
                 }
             }
 
@@ -61,10 +61,10 @@ abstract class LibCatcherPluginAbstract extends JPlugin
             {
                 $signature = sprintf('%s_%s', $event, md5($data . microtime()));
 
-                $message .= '<br/><br/><div class="panel-group" id="accordion">
+                $message .= '<br/><div class="panel-group" id="accordion">
                               <div class="panel panel-default">
                                 <div class="panel-heading">
-                                  <h5 class="panel-title">
+                                  <h5 class="panel-title" style="margin: 0px;">
                                     <a data-toggle="collapse" class="btn btn-warning btn-small" data-parent="#accordion" href="#' .
                                     $signature . '">'.
                                       JText::_('LIB_CATCHER_DISPLAY_HIDE_DATA')
