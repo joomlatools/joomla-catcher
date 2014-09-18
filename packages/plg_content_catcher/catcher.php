@@ -120,11 +120,10 @@ class PlgContentCatcher extends LibCatcherPluginAbstract
     public function onContentPrepareForm($form, $data)
     {
         $this->_reportEvent('onContentPrepareForm', array(
-            'message' => array(
-                'text'       => 'LIB_CATCHER_MESSAGE_CONTEXT',
-                'parameters' => array('onContentPrepareForm')
-            ),
-            'data'    => array('form' => $form->getName(), 'data' => $data)
+            'data' => array(
+                'form' => $form->getName(),
+                'data' => $data
+            )
         ));
     }
 
