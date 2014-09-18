@@ -137,21 +137,4 @@ class PlgContentCatcher extends LibCatcherPluginAbstract
             'data'    => array('form' => $data)
         ));
     }
-
-    public function onContentSearch($text, $phrase, $ordering, $areas)
-    {
-        $this->_reportEvent('onContentSearch', array(
-            'data' => array(
-                'text'     => $text,
-                'phrase'   => $phrase,
-                'ordering' => $ordering,
-                'areas'    => $areas
-            )
-        ));
-    }
-
-    public function onContentSearchAreas()
-    {
-        $this->_reportEvent('onContentSearchAreas');
-    }
 }
