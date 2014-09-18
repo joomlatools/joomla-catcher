@@ -92,7 +92,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
      * @param int $level Indentation level
      * @return string The rendered data
      */
-    protected function _renderData($data, $level = 1)
+    protected function _renderData($data, $level = 0)
     {
         $data = (array) $data;
         $output = '';
