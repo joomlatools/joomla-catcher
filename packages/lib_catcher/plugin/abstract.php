@@ -42,6 +42,8 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
         if (in_array($event, $events))
         {
+            $message = '<div class="well">';
+
             $args = $config['message']['parameters'];
             array_unshift($args, $config['message']['text']);
             $message = call_user_func_array(array('JText', 'sprintf'), $args);
@@ -77,7 +79,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                 $message .= '</div></div></div></div>';
             }
 
-            $message = "<hr>{$message}<hr/>";
+            $message .= '</div>';
 
             JFactory::getApplication()->enqueueMessage($message, 'warning');
         }
