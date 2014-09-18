@@ -46,7 +46,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
             $args = $config['message']['parameters'];
             array_unshift($args, $config['message']['text']);
-            $message = call_user_func_array(array('JText', 'sprintf'), $args);
+            $message .= call_user_func_array(array('JText', 'sprintf'), $args);
 
             if (isset($config['new']))
             {
