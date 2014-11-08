@@ -82,6 +82,20 @@ abstract class LibCatcherPluginAbstract extends JPlugin
             $message .= '</div>';
 
             JFactory::getApplication()->enqueueMessage($message, 'warning');
+            
+            jimport('joomla.log.log');
+            JLog::addLogger(
+                array(
+                     'text_file' => 'catcher.php'
+                ),
+                JLog::ALL,
+                array('catcher')
+            );
+
+            $context = $config['data']['form'];
+            if (is_array($context)) $context = var_export($context, true);
+            $log = $event . ' triggered in '.$context;
+            JLog::add($log, JLog::DEBUG, 'catcher');
         }
     }
 
