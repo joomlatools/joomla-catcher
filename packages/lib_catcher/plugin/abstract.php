@@ -42,18 +42,22 @@ abstract class LibCatcherPluginAbstract extends JPlugin
 
         if (in_array($event, $events))
         {
-            $message = '<div class="well">';
+            $output = '<div class="well">';
 
             $args = $config['message']['parameters'];
+
             array_unshift($args, $config['message']['text']);
-            $message .= call_user_func_array(array('JText', 'sprintf'), $args);
+
+            $message = call_user_func_array(array('JText', 'sprintf'), $args);
+
+            $output .= $message;
 
             if (isset($config['new']))
             {
                 if ($config['new']) {
-                    $message .= '<br/>' . JText::_('LIB_CATCHER_ITEM_NEW');
+                    $output .= '<br/>' . JText::_('LIB_CATCHER_ITEM_NEW');
                 } else {
-                    $message .= '<br/>' . JText::_('LIB_CATCHER_ITEM_NOT_NEW');
+                    $output .= '<br/>' . JText::_('LIB_CATCHER_ITEM_NOT_NEW');
                 }
             }
 
@@ -61,7 +65,7 @@ abstract class LibCatcherPluginAbstract extends JPlugin
             {
                 $signature = sprintf('%s_%s', $event, md5($data . microtime()));
 
-                $message .= '<br/><div class="panel-group" id="accordion">
+                $output .= '<br/><div class="panel-group" id="accordion">
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h5 class="panel-title" style="margin: 0px;">
@@ -74,14 +78,19 @@ abstract class LibCatcherPluginAbstract extends JPlugin
                                 <div id="' . $signature . '" class="panel-collapse collapse">
                                   <div class="panel-body" style="word-break: break-all;">';
 
-                $message .= $data;
+                $output .= $data;
 
-                $message .= '</div></div></div></div>';
+                $output .= '</div></div></div></div>';
             }
 
-            $message .= '</div>';
+            $output .= '</div>';
 
-            JFactory::getApplication()->enqueueMessage($message, 'warning');
+            JFactory::getApplication()->enqueueMessage($output, 'warning');
+
+            // Add a log entry.
+            jimport('joomla.log.log');
+            JLog::addLogger(array('text_file' => 'catcher.php'), JLog::ALL, array('catcher'));
+            JLog::add(strip_tags($message), JLog::DEBUG, 'catcher');
         }
     }
 
