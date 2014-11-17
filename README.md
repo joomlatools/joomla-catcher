@@ -7,18 +7,11 @@ Catcher is a bundle of plugins and a library for catching and debug Joomla! even
 
 ### Composer
 
-You can install this package using [Composer](https://getcomposer.org/). Create a `composer.json` file inside the root directory of your Joomla! site containing the following code:
+Go to the root directory of your Joomla installation in command line and execute this command: 
 
 ```
-{
-    "require": {        
-        "nooku/pkg_catcher": "dev-master"
-    },
-    "minimum-stability": "dev"
-}
+composer require nooku/joomla-catcher:*
 ```
-
-Run composer install.
 
 ### Phing
 
