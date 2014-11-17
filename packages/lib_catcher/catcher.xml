@@ -8,7 +8,7 @@
     <url>https://github.com/nooku/joomla-catcher</url>
     <authorEmail>info@timble.net</authorEmail>
     <authorUrl>www.timble.net</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <description>Base classes for events catching plugins</description>
     <files>
         <folder>plugin</folder>
