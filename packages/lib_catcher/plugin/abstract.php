@@ -3,7 +3,7 @@
  * @package     Catcher
  * @copyright   Copyright (C) 2011 - 2014 Timble CVBA (http://www.timble.net)
  * @license     GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
- * @link        https://github.com/nooku/joomla-catcher for the canonical source repository
+ * @link        https://github.com/joomlatools/joomla-catcher for the canonical source repository
  */
 defined('_JEXEC') or die;
 
