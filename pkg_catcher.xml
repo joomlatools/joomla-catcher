@@ -5,7 +5,7 @@
     <creationDate>September 2014</creationDate>
     <packagename>catcher</packagename>
     <version>1.0.2</version>
-    <url>https://github.com/nooku/joomla-catcher/</url>
+    <url>https://github.com/joomlatools/joomla-catcher/</url>
     <packager>Timble</packager>
     <packagerurl>http://www.timble.net/</packagerurl>
     <description>A bundle of plugins and a library for catching and debug Joomla! events</description>
