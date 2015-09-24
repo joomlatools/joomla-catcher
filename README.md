@@ -10,7 +10,7 @@ Catcher is a bundle of plugins and a library for catching and debug Joomla! even
 Go to the root directory of your Joomla installation in command line and execute this command: 
 
 ```
-composer require nooku/joomla-catcher:*
+composer require joomlatools/joomla-catcher:*
 ```
 
 ### Phing
