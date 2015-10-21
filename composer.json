@@ -1,6 +1,6 @@
 {
     "name": "joomlatools/joomla-catcher",
-    "type": "joomla-extension",
+    "type": "joomla-installer",
     "license": "GPLv3",
     "description": "A bundle of plugins and a library for catching and debug Joomla! events",
     "keywords": [
@@ -19,6 +19,6 @@
         }
     ],
     "require": {
-        "nooku/installer": "*"
+        "joomlatools/installer": "*"
     }
 }
