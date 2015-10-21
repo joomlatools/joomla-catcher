@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Catcher
- * @copyright   Copyright (C) 2011 - 2014 Timble CVBA (http://www.timble.net)
+ * @copyright   Copyright (C) 2011 - 2015 Timble CVBA (http://www.timble.net)
  * @license     GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
  * @link        https://github.com/joomlatools/joomla-catcher for the canonical source repository
  */

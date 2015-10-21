@@ -3,6 +3,9 @@ CHANGELOG
 
 This changelog references the relevant changes (features, bug and security fixes) done.
 
+* 1.0.4 (2015-10-21)
+ * Fixed - Fixed package name and type.
+
 * 1.0.3 (2015-06-22)
  * Improved - Moved repository and updated docblocks
 
