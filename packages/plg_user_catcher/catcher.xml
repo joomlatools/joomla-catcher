@@ -2,13 +2,13 @@
 <extension version="2.5" type="plugin" group="user" method="upgrade">
     <name>plg_user_catcher</name>
     <author>Timble</author>
-    <creationDate>September 2014</creationDate>
-    <copyright>Copyright (C) 2014 Timble CVBA</copyright>
+    <creationDate>October 2015</creationDate>
+    <copyright>Copyright (C) 2015 Timble CVBA</copyright>
     <license>GNU GPLv3 - http://www.gnu.org/licenses/gpl.html</license>
     <url>https://github.com/joomlatools/joomla-catcher</url>
     <authorEmail>info@timble.net</authorEmail>
     <authorUrl>www.timble.net</authorUrl>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     <description>PLG_USER_CATCHER_XML_DESCRIPTION</description>
 
     <files>
