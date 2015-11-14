@@ -30,7 +30,7 @@ We have [contributing guidelines](CONTRIBUTING.md) to help you get started.
 
 ## Contributors
 
-See the list of [contributors](https://github.com/joomlatools/joomla-console/contributors).
+See the list of [contributors](https://github.com/joomlatools/joomla-catcher/contributors).
 
 ## License 
 
