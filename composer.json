@@ -1,7 +1,7 @@
 {
     "name": "joomlatools/joomla-catcher",
     "type": "joomla-installer",
-    "license": "GPLv3",
+    "license": "GPL-3.0-only",
     "description": "A bundle of plugins and a library for catching and debug Joomla! events",
     "keywords": [
         "joomla",
